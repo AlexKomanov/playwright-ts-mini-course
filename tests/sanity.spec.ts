@@ -1,12 +1,13 @@
 import { test, expect } from '@playwright/test';
+import LoginPage from '../pages/LoginPage';
+import UserCredetials from '../helpers/UserCredentials';
+import ApplicationURL from '../helpers/ApplicationURL';
 
 test('sanity test', async ({ page }) => {
-    await page.goto('https://www.saucedemo.com/');
-    await page.locator('[data-test="username"]').click();
-    await page.locator('[data-test="username"]').fill('standard_user');
-    await page.locator('[data-test="password"]').click();
-    await page.locator('[data-test="password"]').fill('secret_sauce');
-    await page.locator('[data-test="login-button"]').click();
+    
+    const loginPage = new LoginPage(page);
+    await loginPage.loginToApplication();
+
     await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
     await page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
     await page.locator('[data-test="add-to-cart-sauce-labs-bolt-t-shirt"]').click();
@@ -24,4 +25,14 @@ test('sanity test', async ({ page }) => {
     await page.getByRole('button', { name: 'Open Menu' }).click();
     await page.getByRole('link', { name: 'Reset App State' }).click();
     await page.getByRole('link', { name: 'Logout' }).click();
+
+});
+
+
+test('demo test_2', async ({ page }) => {
+
+    const loginPage = new LoginPage(page);
+    await loginPage.loginToApplication();
+    
+
 });
