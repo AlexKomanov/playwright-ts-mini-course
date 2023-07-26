@@ -14,7 +14,7 @@ test.describe("Positive Login Scenarios", () => {
     })
 
     test("Login with standard_user", async({page}) => {
-        await loginPage.loginToApplication(UserCredetials.STANDARD_USER);
+        await loginPage.loginToApplication(process.env.STANDARD_USER, process.env.CORRECT_PASSWORD);
         await loginPage.validatePageUrl(ApplicationURL.INVENTORY_PAGE_URL)
     })
 
