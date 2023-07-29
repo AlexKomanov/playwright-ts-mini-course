@@ -19,7 +19,7 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
-      env:
+      env: 
         STANDARD_USER: ${{vars.STANDARD_USER}}
         LOCKED_OUT_USER: ${{vars.LOCKED_OUT_USER}}
         PROBLEM_USER: ${{vars.PROBLEM_USER}}
